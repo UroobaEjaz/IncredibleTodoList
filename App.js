@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
-import Header from './components/Header';
+import { StyleSheet, View,  FlatList,  } from 'react-native';
+import Header from './components/Header.js';
 import ToDoList from './components/ToDoList.js';
 import ToDoForm from './components/TodoForm.js';
 
