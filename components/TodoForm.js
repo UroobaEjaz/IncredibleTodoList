@@ -1,19 +1,18 @@
+
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function ToDoForm({ submitHandler }) {
     const [task, setTask] = useState('');
-  
 
     const changeTaskHandler = (val) => {
         setTask(val);
     }
 
-  
-
     const handleSubmit = () => {
         // Validate input if needed before submitting
-        submitHandler({ task, description });
+        submitHandler(task);  // Pass task directly
+        setTask('');  // Clear the input field after submitting
     }
 
     return (
@@ -21,9 +20,10 @@ export default function ToDoForm({ submitHandler }) {
             <TextInput
                 style={styles.input}
                 placeholder='Enter Task'
+                value={task}
                 onChangeText={(val) => changeTaskHandler(val)}
             />
-          
+
             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonText}>Add Task</Text>
             </TouchableOpacity>
@@ -54,6 +54,5 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
-
     }
 });
